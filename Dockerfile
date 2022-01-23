@@ -47,14 +47,14 @@ WORKDIR /app
 RUN adduser --disabled-password --gecos '' appuser
 
 # Copy application code dependencies
-COPY /conf/start.sh /conf/test_runner.sh ./
+COPY /conf/start.sh ./
 COPY /app ./app
 
 # Assign non-root user permissions
 RUN chown appuser /app /app/*
 
 # Assign start shell script permission privilege to non-root user
-RUN chmod +x /app/start.sh /app/test_runner.sh
+RUN chmod +x /app/start.sh
 
 # Constrain application layer to setting non-root and default command
 FROM python-base as application
@@ -64,22 +64,3 @@ USER appuser
 
 # Set default command to start app shell
 CMD ["/app/start.sh"]
-
-###### Test-Builder Layer #####
-
-# "testing" stage uses "python-base" stage and adds test dependencies to execute test script
-FROM python-base as testing
-
-# Install full poetry environment including dev-dependencies for test libraries
-WORKDIR $PYSETUP_PATH
-RUN poetry install
-
-# Set active directory and copy test dependencies
-WORKDIR /app
-COPY /tests ./tests
-
-# Set non-root user
-USER appuser
-
-# Set default command to run tests
-CMD ["/app/test_runner.sh"]

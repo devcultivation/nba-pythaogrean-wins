@@ -21,6 +21,21 @@ tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)"
 tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "mypy", "pytest-mypy-plugins", "cloudpickle"]
 
 [[package]]
+name = "beautifulsoup4"
+version = "4.9.3"
+description = "Screen-scraping library"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+soupsieve = {version = ">1.2", markers = "python_version >= \"3.0\""}
+
+[package.extras]
+html5lib = ["html5lib"]
+lxml = ["lxml"]
+
+[[package]]
 name = "certifi"
 version = "2021.10.8"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -62,6 +77,20 @@ description = "iniconfig: brain-dead simple config-ini parsing"
 category = "dev"
 optional = false
 python-versions = "*"
+
+[[package]]
+name = "lxml"
+version = "4.4.3"
+description = "Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, != 3.4.*"
+
+[package.extras]
+cssselect = ["cssselect (>=0.7)"]
+html5 = ["html5lib"]
+htmlsoup = ["beautifulsoup4"]
+source = ["Cython (>=0.29.7)"]
 
 [[package]]
 name = "packaging"
@@ -145,6 +174,14 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
 use_chardet_on_py3 = ["chardet (>=3.0.2,<5)"]
 
 [[package]]
+name = "soupsieve"
+version = "2.3.1"
+description = "A modern CSS selector implementation for Beautiful Soup."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
@@ -168,7 +205,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "~3.9"
-content-hash = "6d478e762b932770b811254d262a9deba9e561eeb615addc8d1dbb75c14b0cfb"
+content-hash = "82b0dfeea872593d180c93b4a6bf49f145a01fb85e446b896cee9b791febf0f1"
 
 [metadata.files]
 atomicwrites = [
@@ -178,6 +215,11 @@ atomicwrites = [
 attrs = [
     {file = "attrs-21.4.0-py2.py3-none-any.whl", hash = "sha256:2d27e3784d7a565d36ab851fe94887c5eccd6a463168875832a1be79c82828b4"},
     {file = "attrs-21.4.0.tar.gz", hash = "sha256:626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"},
+]
+beautifulsoup4 = [
+    {file = "beautifulsoup4-4.9.3-py2-none-any.whl", hash = "sha256:4c98143716ef1cb40bf7f39a8e3eec8f8b009509e74904ba3a7b315431577e35"},
+    {file = "beautifulsoup4-4.9.3-py3-none-any.whl", hash = "sha256:fff47e031e34ec82bf17e00da8f592fe7de69aeea38be00523c04623c04fb666"},
+    {file = "beautifulsoup4-4.9.3.tar.gz", hash = "sha256:84729e322ad1d5b4d25f805bfa05b902dd96450f43842c4e99067d5e1369eb25"},
 ]
 certifi = [
     {file = "certifi-2021.10.8-py2.py3-none-any.whl", hash = "sha256:d62a0163eb4c2344ac042ab2bdf75399a71a2d8c7d47eac2e2ee91b9d6339569"},
@@ -198,6 +240,35 @@ idna = [
 iniconfig = [
     {file = "iniconfig-1.1.1-py2.py3-none-any.whl", hash = "sha256:011e24c64b7f47f6ebd835bb12a743f2fbe9a26d4cecaa7f53bc4f35ee9da8b3"},
     {file = "iniconfig-1.1.1.tar.gz", hash = "sha256:bc3af051d7d14b2ee5ef9969666def0cd1a000e121eaea580d4a313df4b37f32"},
+]
+lxml = [
+    {file = "lxml-4.4.3-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:7f054ac5ef55599b961064ad5a4e23e68f98b15b27be26872e6f6206fabe2ce4"},
+    {file = "lxml-4.4.3-cp27-cp27m-manylinux1_i686.whl", hash = "sha256:6f85f544b5897165e8f89ca7da71b9c3385db82db32c1a6ad3dc9c598bd194e1"},
+    {file = "lxml-4.4.3-cp27-cp27m-manylinux1_x86_64.whl", hash = "sha256:edb20205a3bbc8a8695d2f9f963cd9682fb75c94f4ff34472b8af39ebad8d45d"},
+    {file = "lxml-4.4.3-cp27-cp27m-win32.whl", hash = "sha256:36d6ec2a70db1ba7ad00641da89e30b644f79b6219d6b80fa30c0526b2574614"},
+    {file = "lxml-4.4.3-cp27-cp27m-win_amd64.whl", hash = "sha256:aca0468778e49e4f58433f1dab44f9d9085c0a0ee20e4bb9a52c9f4e32a1e617"},
+    {file = "lxml-4.4.3-cp27-cp27mu-manylinux1_i686.whl", hash = "sha256:284deb3911164f8841296a949f0ffdd809023f13edae7a9cf47574ea208ab751"},
+    {file = "lxml-4.4.3-cp27-cp27mu-manylinux1_x86_64.whl", hash = "sha256:95a466ed4440effa95fac78f0d44b7b6309687644def6d429331385bccbf09f4"},
+    {file = "lxml-4.4.3-cp35-cp35m-manylinux1_i686.whl", hash = "sha256:a3e8781495f4b678d281ace499f09a4b18104161f825093dfa2c2bf35dd6d905"},
+    {file = "lxml-4.4.3-cp35-cp35m-manylinux1_x86_64.whl", hash = "sha256:cab6845dc29c724015d5f79414dc80d081c15993a18ab7fc500f3dfad907dbe6"},
+    {file = "lxml-4.4.3-cp35-cp35m-win32.whl", hash = "sha256:bb9677fcad7e2c9ecd15c7fc09cc717ed08b589cc00082739976c3ee52fb53ab"},
+    {file = "lxml-4.4.3-cp35-cp35m-win_amd64.whl", hash = "sha256:0126dc8fe8c154f2cc7ec0f8f65beff3ae948b8f2a273c0933e92eb29011d595"},
+    {file = "lxml-4.4.3-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:0ad067a416dba61e8256f7f33c2800f27d69886f01eb9f57f41154ddfc043571"},
+    {file = "lxml-4.4.3-cp36-cp36m-manylinux1_i686.whl", hash = "sha256:d04d9739be5f460f07aa7b0cac123eef50d38fc5067771866fdb6f5ac0d84da1"},
+    {file = "lxml-4.4.3-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:c786a0a7c55128914bb504c5ea55f3e07b4f1c643ad7ceca81a88a080f094a7f"},
+    {file = "lxml-4.4.3-cp36-cp36m-win32.whl", hash = "sha256:e56f99ee2116e0f08749cdf666e7b8212bfa3944cbe7f24f7abfcb7c77329349"},
+    {file = "lxml-4.4.3-cp36-cp36m-win_amd64.whl", hash = "sha256:aff78786249abff5ea4c447e935644f9ee9caa82a6c98698503f7b566ef4d5fe"},
+    {file = "lxml-4.4.3-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:4b28effc597a6a3978ea3ac6f16ae554250c9c1dd7f69f1614c08d1feaa37747"},
+    {file = "lxml-4.4.3-cp37-cp37m-manylinux1_i686.whl", hash = "sha256:d13c7ee2f908ba520df097d7f04796603e73097763c345ced362e219ef0a09fb"},
+    {file = "lxml-4.4.3-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:8d858b09a11de9fc5e734543c4b200d11f3e2bcfb5fde7ed0a5c534f089169c2"},
+    {file = "lxml-4.4.3-cp37-cp37m-win32.whl", hash = "sha256:30cd46784ae5ae06d19b8f2d0a4c24357d4db07ee4ee49da4c6e1cfd902e5e2d"},
+    {file = "lxml-4.4.3-cp37-cp37m-win_amd64.whl", hash = "sha256:01f5f9e19b2dc15952b6f2518a32786e039693eb1d6dda5784b2629c5809b2ac"},
+    {file = "lxml-4.4.3-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:f2d706f73a7eb1d1bc1d5ef3b7a14816491992f3e68deddf189eb43a8ce4d731"},
+    {file = "lxml-4.4.3-cp38-cp38-manylinux1_i686.whl", hash = "sha256:26cacc8a8c9d020062a460bcd8115a5e6b9383fb0d2e3e2c8911408d4acb13f8"},
+    {file = "lxml-4.4.3-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:7af5aeedfd47fa5926a85bd7bb39a7eb0d1b98c876012e0bcee939a31cc78f75"},
+    {file = "lxml-4.4.3-cp38-cp38-win32.whl", hash = "sha256:70097943b0b0afc0eb181307d74ee0a72e6d3cfb5d62ffbfab9ac417a3197365"},
+    {file = "lxml-4.4.3-cp38-cp38-win_amd64.whl", hash = "sha256:863d6a7ca7700ef9a5da58654eed73777d72bd3060ec132b8f26df69c4dea5a8"},
+    {file = "lxml-4.4.3.tar.gz", hash = "sha256:d0f224df98c58444e11dc68c264a1264c23ef3fc0ed3f32bf3d741b860b76241"},
 ]
 packaging = [
     {file = "packaging-21.3-py3-none-any.whl", hash = "sha256:ef103e05f519cdc783ae24ea4e2e0f508a9c99b2d4969652eed6a2e1ea5bd522"},
@@ -222,6 +293,10 @@ pytest = [
 requests = [
     {file = "requests-2.27.1-py2.py3-none-any.whl", hash = "sha256:f22fa1e554c9ddfd16e6e41ac79759e17be9e492b3587efa038054674760e72d"},
     {file = "requests-2.27.1.tar.gz", hash = "sha256:68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"},
+]
+soupsieve = [
+    {file = "soupsieve-2.3.1-py3-none-any.whl", hash = "sha256:1a3cca2617c6b38c0343ed661b1fa5de5637f257d4fe22bd9f1338010a1efefb"},
+    {file = "soupsieve-2.3.1.tar.gz", hash = "sha256:b8d49b1cd4f037c7082a9683dfa1801aa2597fb11c3a1155b7a5b94829b4f1f9"},
 ]
 toml = [
     {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
