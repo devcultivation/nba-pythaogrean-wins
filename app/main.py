@@ -26,7 +26,7 @@ def load_dynamic_nba_2022_html():
 def load_static_nba_2022_html():
     """Load NBA 2022 team summary html from Basketball Reference"""
 
-    html_url = 'https://raw.githubusercontent.com/devcultivation/data-sources/main/basketball/nba-team-summary-01-22-2022.html'
+    html_url = 'https://raw.githubusercontent.com/kyleaclark/devcultivation-data/main/basketball/nba-team-summary-01-22-2022.html'
     result = requests.get(html_url).content
 
     return result
