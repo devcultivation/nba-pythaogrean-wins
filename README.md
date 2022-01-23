@@ -1,8 +1,6 @@
-# Python Debian Poetry Template
+# NBA Pythagorean Wins
 
-- Python 3.9.4
-- Poetry dependency management  
-- Base Docker image: python:3.9.4-buster (debian)
+- Scrape NBA team data from Basketball Reference and compute NBA Pythagorean wins
 - Authored by Kyle Clark. Follow [@devcultivation](https://twitter.com/devcultivation) or visit [devcultivation.com](https://devcultivation.com) for more content.
 
 ### Local Environment
@@ -36,15 +34,8 @@ ___
 #### Docker Build & Run App
 
 ```
-docker build --target application -f Dockerfile -t py-debian-poetry .
-docker run --user=appuser --env APP_ENV=DEV py-debian-poetry
-```
-
-#### Docker Build & Run Tests
-
-```
-docker build --target testing -f Dockerfile -t py-debian-poetry .
-docker run --user=appuser --env APP_ENV=DEV py-debian-poetry
+docker build --target application -f Dockerfile -t nba-pythagorean-wins .
+docker run --user=appuser --env APP_ENV=DEV nba-pythagorean-wins
 ```
 
 ___
